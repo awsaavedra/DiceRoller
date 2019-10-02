@@ -10,6 +10,9 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+//https://kotlinlang.org/docs/reference/properties.html#late-initialized-properties-and-variables
+    lateinit var diceImg: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,12 +21,15 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener{
             rollDice()
         }
+
+        diceImg = findViewById(R.id.dice_image)
     }
 
     private fun rollDice() {
 
         val randomInt = Random().nextInt(6) + 1
 
+        //https://superkotlin.com/kotlin-when-statement/
         val drawableResource = when(randomInt){
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
@@ -33,7 +39,6 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_6
         }
 
-        val diceImg: ImageView = findViewById(R.id.dice_image)
         diceImg.setImageResource(drawableResource)
     }
 }

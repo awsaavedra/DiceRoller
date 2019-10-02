@@ -10,7 +10,6 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-//https://kotlinlang.org/docs/reference/properties.html#late-initialized-properties-and-variables
     lateinit var diceImg: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         val randomInt = Random().nextInt(6) + 1
 
-        //https://superkotlin.com/kotlin-when-statement/
         val drawableResource = when(randomInt){
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
